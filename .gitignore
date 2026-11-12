@@ -1,0 +1,44 @@
+﻿# Dependências, build e caches
+node_modules/
+dist/
+.npm-cache/
+.vite/
+coverage/
+# Ambientes e configurações locais (inclusive exemplos, até revisão explícita)
+.env
+.env.*
+*.env
+*.local
+.npmrc
+# Credenciais e chaves
+credentials.json
+credentials.*.json
+secrets.json
+secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa*
+id_ed25519*
+.aws/
+.ssh/
+# Ferramentas locais
+.agents/
+.codex/
+skills-lock.json
+# Temporários, logs e sistema
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+*.tsbuildinfo
+.tmp/
+tmp/
+temp/
+.DS_Store
+Thumbs.db
+Desktop.ini

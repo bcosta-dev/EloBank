@@ -1,0 +1,218 @@
+
+/* Elo Bank — Navegação contextual */
+
+/* Espaçamento para navegação entre seções */
+html {
+  scroll-padding-top: max(32px, var(--context-nav-offset, 100px));
+}
+
+/*
+ * A barra não altera a altura da página ao aparecer.
+ * O contêiner permanece com altura zero e a navegação
+ * é posicionada visualmente sobre o conteúdo.
+ */
+.context-rail {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  height: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translateY(-12px);
+
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease,
+    visibility 220ms ease;
+}
+
+.context-rail.is-visible {
+  height: 0;
+  padding: 0 20px;
+
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: translateY(0);
+}
+
+/* Barra principal */
+.context-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: min(860px, 100%);
+  margin-inline: auto;
+  padding: 8px 16px;
+
+  background: var(--navy);
+  color: var(--white);
+
+  border: 1px solid #35455b;
+  border-radius: 20px;
+
+  box-shadow: 0 6px 18px #101d351a;
+}
+
+/* Acessibilidade */
+.context-nav :focus-visible {
+  outline: 3px solid var(--mint);
+  outline-offset: 3px;
+}
+
+/* Marca */
+.context-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex-shrink: 0;
+}
+
+.context-brand .brand {
+  font-size: 23px;
+  gap: 5px;
+}
+
+.context-brand .brand svg {
+  width: 27px;
+  height: 27px;
+}
+
+/* Links */
+.context-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.context-links a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 14px;
+
+  font-size: 15px;
+  border-radius: 10px;
+  white-space: nowrap;
+
+  transition:
+    color 180ms ease-out,
+    background 180ms ease-out;
+}
+
+.context-links a:hover {
+  background: #ffffff12;
+}
+
+.context-links a[aria-current] {
+  background: var(--mint);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* Botões */
+.context-top,
+.context-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 10px;
+
+  border: 1px solid #65778d;
+  border-radius: 12px;
+
+  font-size: 14px;
+  color: var(--white);
+  background: transparent;
+
+  transition: background 180ms ease-out;
+}
+
+.context-top:hover,
+.context-toggle:hover {
+  background: #ffffff12;
+}
+
+.context-toggle {
+  display: none;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .context-rail,
+  .context-rail.is-visible {
+    padding: 0 12px;
+  }
+
+  .context-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 18px;
+  }
+
+  .context-brand .brand {
+    font-size: 21px;
+  }
+
+  .context-brand .brand svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .context-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .context-top span {
+    display: none;
+  }
+
+  .context-links {
+    display: none;
+    order: 4;
+    width: 100%;
+    margin: 0;
+    padding-top: 8px;
+    border-top: 1px solid #35455b;
+  }
+
+  .context-links.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .context-links a {
+    padding-inline: 12px;
+  }
+}
+
+/* Respeitar preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .context-rail,
+  .context-links a,
+  .context-top,
+  .context-toggle {
+    transition: none;
+  }
+
+  .context-rail {
+    transform: none;
+  }
+}
