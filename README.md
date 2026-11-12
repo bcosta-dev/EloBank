@@ -1,80 +1,75 @@
 # Elo Bank
 
-Elo Bank é um projeto de portfólio de Engenharia de Software com foco em Quality Assurance (QA). A proposta é desenvolver um banco digital fictício e organizar requisitos, testes e defeitos no Jira e no Zephyr.
+Estou desenvolvendo o Elo Bank, um banco digital fictício que criei para colocar em prática meus conhecimentos de Engenharia de Software, principalmente na área de Quality Assurance (QA).
 
-Hoje, o projeto tem uma página institucional em React e um plano de testes. Não há serviços financeiros, backend, autenticação ou persistência. O uso de Jira e Zephyr está planejado; ainda não há registros de execução ou integração com essas ferramentas documentados no repositório.
+Minha ideia é construir um sistema que eu possa testar de verdade, desde a análise dos requisitos até a execução dos testes e o registro de bugs. Para organizar esse processo, estou utilizando o Jira e o Zephyr Essential.
 
-## O que está implementado
-
-- Página com apresentação, essência, próximas etapas, sobre e perguntas frequentes.
-- Menu móvel, links entre seções e navegação contextual com indicação da seção ativa e retorno ao topo.
-- Perguntas expansíveis com HTML nativo.
-- Smartphone e cartão ilustrativos, com nome e valores fictícios.
-- Layout responsivo, link para pular ao conteúdo, tratamento de foco, atributos ARIA e suporte à preferência de movimento reduzido. A acessibilidade ainda precisa ser validada em testes.
-
-Os componentes em `src/components/dashboard/` e os dados em `src/content/dashboardDemo.ts` estão preservados, mas não são usados na página atual.
-
-## Próximas etapas
-
-A área do cliente e o cadastro exclusivo por operadores dependem de histórias aprovadas. Não há autocadastro público, abertura de conta, consulta real de saldo ou transferências.
-
-No QA, falta executar os casos planejados, registrar evidências e defeitos e estabelecer a rastreabilidade no Jira e no Zephyr. Automação de testes, lint e integração contínua ainda não estão configurados.
+O projeto ainda está em desenvolvimento. Atualmente, tenho a página inicial funcionando e estou trabalhando na estrutura das funcionalidades bancárias.
 
 ## Tecnologias
 
-React 19, React DOM, TypeScript 5 em modo estrito, Vite 6 com plugin React e CSS próprio. Os ícones são do Lucide React; as fontes Manrope e Source Sans 3 são locais, via Fontsource. As dependências são gerenciadas pelo npm e pelo `package-lock.json`.
+No frontend, estou utilizando:
 
-Java, Spring Boot e PostgreSQL são uma direção futura descrita em [PRODUCT.md](PRODUCT.md), não tecnologias implementadas nesta versão.
+- React
+- TypeScript
+- Vite
+- HTML e CSS
+- Lucide React
 
-## Executar localmente
+Para o backend, pretendo trabalhar com Java, Spring Boot e PostgreSQL.
 
-Ambiente usado nas verificações registradas: Node.js 24.21.0 e npm 11.19.0.
+## O que já foi desenvolvido
 
-```sh
-npm ci
+Até agora, desenvolvi a página inicial do Elo Bank, incluindo:
+
+- Interface responsiva para computadores e celulares.
+- Menu de navegação e acesso às seções da página.
+- Barra de navegação que aparece durante a rolagem.
+- Seção de perguntas frequentes.
+- Elementos visuais representando o aplicativo e o cartão do banco.
+
+As funcionalidades bancárias, como cadastro de clientes, abertura de contas e transferências, ainda serão implementadas.
+
+## Qualidade de Software
+
+Meu foco principal no Elo Bank é trabalhar com QA.
+
+Estou organizando os requisitos e as histórias de usuário para desenvolver casos de teste e acompanhar as atividades pelo Jira e Zephyr Essential.
+
+Conforme as funcionalidades forem implementadas, pretendo executar os testes, registrar evidências, documentar os defeitos encontrados e realizar os retestes.
+
+Também pretendo trabalhar com testes automatizados utilizando Java e JUnit.
+
+## Como executar
+
+Para executar o projeto localmente, é necessário ter o Node.js instalado.
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/bcosta-dev/EloBank.git
+```
+
+Entre na pasta:
+
+```bash
+cd EloBank
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie a aplicação:
+
+```bash
 npm run dev
 ```
 
-Abra a URL informada pelo Vite, normalmente `http://127.0.0.1:5173`.
+Depois, abra o endereço informado no terminal, normalmente `http://localhost:5173`.
 
-```sh
-npm run typecheck
-npm run build
-npm run preview
-```
+---
 
-O build gera `dist/`. A versão atual não exige variáveis de ambiente. Variáveis expostas pelo Vite são públicas e não devem conter segredos. A instalação com `npm ci` é a orientação para reproduzir o ambiente; as verificações abaixo usaram dependências já instaladas.
-
-## Documentação e QA
-
-- [PRODUCT.md](PRODUCT.md): requisitos e limites do produto.
-- [DESIGN.md](DESIGN.md): decisões visuais, interações e origem dos recursos.
-- [QA.md](QA.md): escopo, casos de teste, critérios e rastreabilidade.
-
-O Jira será usado para requisitos, histórias e defeitos; o Zephyr, para casos, ciclos, execuções e evidências. Os IDs do plano de QA são locais, não chaves de tickets reais.
-
-O código está em `src/`: `App.tsx` compõe a página, `main.tsx` carrega a aplicação e as fontes, e as pastas `components/`, `content/` e `styles/` reúnem componentes, textos, dados fictícios e CSS. `public/` contém o favicon e uma fotografia histórica sem uso na interface.
-
-## Verificações registradas
-
-Resultados de 11/11/2026 (America/Sao_Paulo):
-
-| Verificação | Resultado |
-| --- | --- |
-| `npm run typecheck` | Aprovado, sem erros |
-| `npm run build` | Aprovado, Vite 6.4.6 gerou `dist/` |
-| `npm run lint` | Indisponível: script ausente |
-| Testes funcionais, visuais e de acessibilidade em navegador | Não executados nessa revisão |
-| Testes automatizados | Suíte e script não encontrados |
-
-Build e análise de tipos não substituem testes funcionais. A revisão de documentação de 12/11/2026 não executou novos testes.
-
-## Dados e recursos
-
-Marina, saldos e movimentações são fictícios. A revisão textual anterior não identificou credenciais e removeu um caminho pessoal de `DESIGN.md`; não incluiu auditoria de segurança ou de metadados binários.
-
-O `.gitignore` exclui dependências, builds, ambientes, credenciais locais, caches e temporários. Isso não protege segredos inseridos no código nem remove arquivos já rastreados.
-
-A fotografia histórica tem origem e atribuição registradas em `DESIGN.md`. Mesmo sem uso, arquivos de `public/` são copiados para o build. Fontes e ícones seguem as licenças dos respectivos pacotes. O código ainda não tem uma licença definida pelo proprietário.
-
-Repositório: [bcosta-dev/EloBank](https://github.com/bcosta-dev/EloBank), branch `main`.
+**Status:** em desenvolvimento.
