@@ -42,3 +42,8 @@ temp/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# Documentos internos mantidos somente na pasta local
+/PRODUCT.md
+/DESIGN.md
+/QA.md
