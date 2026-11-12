@@ -1,48 +1,41 @@
 # Elo Bank
 
-Projeto de portfólio de um banco digital fictício, com uma interface institucional em React e planejamento de Quality Assurance (QA), organização de trabalho no Jira e gestão de testes no Zephyr.
+Elo Bank é um projeto de portfólio de Engenharia de Software com foco em Quality Assurance (QA). A proposta é desenvolver um banco digital fictício e organizar requisitos, testes e defeitos no Jira e no Zephyr.
 
-**Estado atual:** frontend demonstrativo implementado. O planejamento de QA está documentado; não há evidências de testes executados no Jira/Zephyr, integração com essas ferramentas ou suíte automatizada no projeto. Nenhum serviço financeiro está disponível.
-
-## Tecnologias utilizadas
-
-- React 19 e React DOM: componentes e interações locais.
-- TypeScript 5, com verificação estrita.
-- Vite 6 e plugin React: desenvolvimento e build estático.
-- CSS próprio: layout responsivo, tokens visuais e estados de interação.
-- Lucide React: ícones.
-- Fontsource: fontes Manrope e Source Sans 3 distribuídas localmente.
-- npm e `package-lock.json`: dependências e versões reproduzíveis.
-
-Java, Spring Boot e PostgreSQL aparecem somente como direção futura em `PRODUCT.md`; não estão implementados. Não há backend, API, banco de dados, autenticação ou persistência.
+Hoje, o projeto tem uma página institucional em React e um plano de testes. Não há serviços financeiros, backend, autenticação ou persistência. O uso de Jira e Zephyr está planejado; ainda não há registros de execução ou integração com essas ferramentas documentados no repositório.
 
 ## O que está implementado
 
-- Landing page com apresentação, essência, próximas etapas, sobre e perguntas frequentes.
-- Cabeçalho com menu móvel e navegação por âncoras.
-- Navegação contextual exibida após a saída do cabeçalho da tela, com indicação da seção ativa e retorno ao topo.
+- Página com apresentação, essência, próximas etapas, sobre e perguntas frequentes.
+- Menu móvel, links entre seções e navegação contextual com indicação da seção ativa e retorno ao topo.
 - Perguntas expansíveis com HTML nativo.
-- Smartphone e cartão ilustrativos, com nome e valores explicitamente fictícios.
-- Estilos responsivos, link para pular ao conteúdo, tratamento de foco, atributos ARIA e respeito à preferência de movimento reduzido. A existência desses recursos não equivale a uma certificação de acessibilidade.
+- Smartphone e cartão ilustrativos, com nome e valores fictícios.
+- Layout responsivo, link para pular ao conteúdo, tratamento de foco, atributos ARIA e suporte à preferência de movimento reduzido. A acessibilidade ainda precisa ser validada em testes.
 
-Os componentes em `src/components/dashboard/` e os dados em `src/content/dashboardDemo.ts` estão preservados, mas não são utilizados pela página atual. Não representam uma área do cliente funcional.
+Os componentes em `src/components/dashboard/` e os dados em `src/content/dashboardDemo.ts` estão preservados, mas não são usados na página atual.
 
-## Em construção e etapas futuras
+## Próximas etapas
 
-A área do cliente e o cadastro exclusivo por operadores são etapas futuras descritas no produto, dependentes de histórias aprovadas. Não há autocadastro público, abertura de conta, consulta real de saldo ou transferências.
+A área do cliente e o cadastro exclusivo por operadores dependem de histórias aprovadas. Não há autocadastro público, abertura de conta, consulta real de saldo ou transferências.
 
-O trabalho de QA ainda precisa executar os cenários planejados, registrar evidências e defeitos, e organizar a rastreabilidade no Jira e no Zephyr. Automação, lint e integração contínua não estão configurados. Não há promessa de prazo ou requisitos adicionais para essas etapas.
+No QA, falta executar os casos planejados, registrar evidências e defeitos e estabelecer a rastreabilidade no Jira e no Zephyr. Automação de testes, lint e integração contínua ainda não estão configurados.
+
+## Tecnologias
+
+React 19, React DOM, TypeScript 5 em modo estrito, Vite 6 com plugin React e CSS próprio. Os ícones são do Lucide React; as fontes Manrope e Source Sans 3 são locais, via Fontsource. As dependências são gerenciadas pelo npm e pelo `package-lock.json`.
+
+Java, Spring Boot e PostgreSQL são uma direção futura descrita em [PRODUCT.md](PRODUCT.md), não tecnologias implementadas nesta versão.
 
 ## Executar localmente
 
-Ambiente utilizado nesta revisão: Node.js 24.21.0 e npm 11.19.0.
+Ambiente usado nas verificações registradas: Node.js 24.21.0 e npm 11.19.0.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Abra a URL informada pelo Vite (normalmente `http://127.0.0.1:5173`). A instalação limpa com `npm ci` é a orientação de reprodução; não foi executada nesta revisão, que usou as dependências já instaladas.
+Abra a URL informada pelo Vite, normalmente `http://127.0.0.1:5173`.
 
 ```sh
 npm run typecheck
@@ -50,49 +43,38 @@ npm run build
 npm run preview
 ```
 
-O build gera `dist/`. Não é necessário configurar variáveis de ambiente para a versão atual. Variáveis expostas pelo Vite no frontend são públicas e não devem conter segredos.
+O build gera `dist/`. A versão atual não exige variáveis de ambiente. Variáveis expostas pelo Vite são públicas e não devem conter segredos. A instalação com `npm ci` é a orientação para reproduzir o ambiente; as verificações abaixo usaram dependências já instaladas.
 
-## Estrutura
+## Documentação e QA
 
-```text
-src/
-  App.tsx                  Composição da página
-  main.tsx                 Entrada e importação das fontes
-  components/              Marca, navegação e componentes visuais
-  content/                 Textos e dados fictícios
-  styles/                  CSS e tokens
-public/                    Favicon e recurso fotográfico histórico
-PRODUCT.md                 Escopo e limites do produto
-DESIGN.md                  Decisões visuais e origem dos recursos
-QA.md                      Plano de testes e proposta de uso de Jira/Zephyr
-```
+- [PRODUCT.md](PRODUCT.md): requisitos e limites do produto.
+- [DESIGN.md](DESIGN.md): decisões visuais, interações e origem dos recursos.
+- [QA.md](QA.md): escopo, casos de teste, critérios e rastreabilidade.
 
-## QA, Jira e Zephyr
+O Jira será usado para requisitos, histórias e defeitos; o Zephyr, para casos, ciclos, execuções e evidências. Os IDs do plano de QA são locais, não chaves de tickets reais.
 
-O foco do portfólio é demonstrar análise de escopo, planejamento de testes, rastreabilidade e comunicação de qualidade. Consulte [o plano de QA](QA.md) para os cenários propostos, critérios de execução e modelo de registro de defeitos. Os identificadores desse documento são locais, não chaves de tickets reais.
+O código está em `src/`: `App.tsx` compõe a página, `main.tsx` carrega a aplicação e as fontes, e as pastas `components/`, `content/` e `styles/` reúnem componentes, textos, dados fictícios e CSS. `public/` contém o favicon e uma fotografia histórica sem uso na interface.
 
-Jira é a ferramenta pretendida para organizar histórias e defeitos; Zephyr, para casos, ciclos e evidências de execução. Nenhum projeto, ticket, ciclo ou resultado foi criado nessas ferramentas nesta preparação.
+## Verificações registradas
 
-## Verificações desta revisão
-
-Executadas em 11/11/2026 (America/Sao_Paulo):
+Resultados de 11/11/2026 (America/Sao_Paulo):
 
 | Verificação | Resultado |
 | --- | --- |
 | `npm run typecheck` | Aprovado, sem erros |
 | `npm run build` | Aprovado, Vite 6.4.6 gerou `dist/` |
-| `npm run lint` | Indisponível: script `lint` ausente |
-| Testes funcionais, visuais e acessibilidade em navegador | Não executados nesta revisão |
+| `npm run lint` | Indisponível: script ausente |
+| Testes funcionais, visuais e de acessibilidade em navegador | Não executados nessa revisão |
 | Testes automatizados | Suíte e script não encontrados |
 
-Build e análise de tipos não comprovam o funcionamento de todos os fluxos nem substituem testes de QA.
+Build e análise de tipos não substituem testes funcionais. A revisão de documentação de 12/11/2026 não executou novos testes.
 
-## Publicação e privacidade
+## Dados e recursos
 
-O `.gitignore` exclui dependências, builds, caches, ambientes, chaves, arquivos locais de credenciais e temporários. Ele reduz exposição acidental, mas não detecta segredos inseridos no código e não remove arquivos já rastreados.
+Marina, saldos e movimentações são fictícios. A revisão textual anterior não identificou credenciais e removeu um caminho pessoal de `DESIGN.md`; não incluiu auditoria de segurança ou de metadados binários.
 
-A revisão textual não identificou credenciais nos arquivos destinados à publicação. Um caminho pessoal foi removido de `DESIGN.md`. Marina, saldos e movimentações são dados de demonstração identificados como fictícios no código. A revisão não é uma auditoria de segurança ou de metadados binários.
+O `.gitignore` exclui dependências, builds, ambientes, credenciais locais, caches e temporários. Isso não protege segredos inseridos no código nem remove arquivos já rastreados.
 
-A fotografia histórica em `public/images/` não está referenciada na interface; sua origem e atribuição estão registradas em `DESIGN.md`. Arquivos em `public/` são copiados pelo Vite para o build mesmo sem uso. Fontes e ícones mantêm as licenças de seus respectivos pacotes. Não foi adicionada uma licença para o código: a escolha cabe ao titular do projeto.
+A fotografia histórica tem origem e atribuição registradas em `DESIGN.md`. Mesmo sem uso, arquivos de `public/` são copiados para o build. Fontes e ícones seguem as licenças dos respectivos pacotes. O código ainda não tem uma licença definida pelo proprietário.
 
-Repositório público: https://github.com/bcosta-dev/EloBank. Branch principal: `main`. Consulte o histórico do GitHub para acompanhar as versões publicadas.
+Repositório: [bcosta-dev/EloBank](https://github.com/bcosta-dev/EloBank), branch `main`.

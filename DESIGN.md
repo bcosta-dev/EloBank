@@ -1,7 +1,7 @@
 # Elo Bank — sistema visual
 
 ## Direção
-Fintech Premium + Editorial. Azul-noturno e verde-menta preservados, com hierarquia tipográfica e a composição recuperada de smartphone e cartão conceitual no hero. Slogan: “Conexões que ficam.” Referências bancárias orientam apenas princípios de legibilidade, impacto, organização e acabamento; não são reproduzidas marcas ou composições.
+A interface usa azul-noturno e verde-menta, com smartphone e cartão conceitual na seção inicial. Slogan: “Conexões que ficam.” Referências bancárias orientam apenas princípios de legibilidade, impacto, organização e acabamento; não são reproduzidas marcas ou composições.
 
 ## Paleta e tipografia
 - Azul-noturno #101D35: hero, navegação, cartão principal e rodapé.
@@ -12,7 +12,7 @@ Fintech Premium + Editorial. Azul-noturno e verde-menta preservados, com hierarq
 - Manrope 500/600 para marca e títulos; Source Sans 3 400/600 para leitura e controles. Fontes locais via Fontsource.
 - Título principal fluido, até 67,2px, entrelinha 1,12 e tracking -0,05em. Títulos de seção até 52px; corpo 18px, com linhas curtas e alinhamento à esquerda.
 
-## Composição e revisão do plano
+## Composição
 O hero mantém o título, apoio e botões à esquerda. À direita, o smartphone vertical e o cartão horizontal recuperam a composição anterior. Moldura metálica, câmera discreta, tela clara e sombras em duas escalas trazem profundidade. O cartão azul acetinado foi refinado para 282 × 178px (aproximadamente 25% maior que a versão de 226 × 142px) e deslocado para a base: sobrepõe apenas a região inferior do aparelho, preservando saldo, rótulo de demonstração e movimentações. Não há elementos decorativos adicionais.
 
 Desktop:
@@ -28,9 +28,9 @@ Desktop:
 
 Mobile: uma coluna, texto antes da composição, menu expansível no fluxo e etapas empilhadas na ordem de leitura. Breakpoints em 1100, 800 e 480px; conteúdo acomodado desde 320px. Container máximo de 1248px, margens de 56/32/20px. Espaçamentos em múltiplos de 4px; seções 112px em desktop e 72px no celular.
 
-## Materiais e componentes
-- O cartão ilustrativo da seção de possibilidades permanece inalterado. O hero recupera o smartphone e o cartão sobreposto, em HTML/CSS estático. Sem fotografia, dashboard desktop ou interface bancária funcional.
-- HeroShowcase recuperado do script anterior elo-editorial.cjs. Mantidos a marca, a saudação a Marina, o saldo ilustrativo, duas movimentações fictícias e o slogan. Smartphone de 292 × 578px em desktop, com tela clara e moldura refinada; cartão de proporção bancária com chip apenas gráfico, sem número ou bandeira.
+## Componentes
+- O cartão ilustrativo da seção de possibilidades permanece inalterado. O hero apresenta o smartphone e o cartão sobreposto, em HTML/CSS estático. Sem fotografia, dashboard desktop ou interface bancária funcional.
+- HeroShowcase reúne a marca, a saudação a Marina, o saldo ilustrativo, duas movimentações fictícias e o slogan. Smartphone de 292 × 578px em desktop, com tela clara e moldura refinada; cartão de proporção bancária com chip apenas gráfico, sem número ou bandeira.
 - Brand, Header, ActionLink, SectionHeading, ServiceCard e AccordionItem preservam a estrutura reutilizável.
 - ActionLink usa formato de cápsula, alvo mínimo de 54px e setas decorativas. ServiceCard recebe status textual e conteúdo editorial; não é clicável.
 - Superfícies principais com raio de 24px; cartões ilustrativos 14–18px. Princípios e FAQ usam separadores para organizar a leitura, sem caixas desnecessárias.
@@ -41,16 +41,15 @@ Menu móvel com aria-expanded, aria-controls, fechamento por seleção, Escape c
 Idioma pt-BR, um h1, landmarks, link de pular navegação, títulos ordenados, SVGs decorativos ocultos de leitores de tela e foco visível com contraste em fundos claros e escuros. Composição em figure com legenda visível e descrição acessível única via role img, explicitando saldo fictício e indisponibilidade de operações. Conteúdo interno decorativo evita leitura redundante. Sem animação, tab stops desnecessários ou controles desabilitados. O foco visível dos controles reais da landing permanece. Movimento reduzido desativa transições e rolagem suave. Links e botões mantêm áreas de toque confortáveis.
 
 ## Conteúdo e limites
-PRODUCT.md continua sendo a autoridade de negócio. A página informa que o banco é fictício e não operacional. As próximas etapas apresentam somente área do cliente e cadastro exclusivo por operadores já previstos nos requisitos. Não há catálogo financeiro aprovado: nenhum produto, prazo, benefício, taxa ou funcionalidade adicional foi presumido. Cartões são expressão visual, não especificação de produto. Sem backend, formulários, autenticação, coleta de dados ou autocadastro.
+As regras de negócio estão em [PRODUCT.md](PRODUCT.md). A página informa que o banco é fictício e não operacional. As próximas etapas apresentam somente área do cliente e cadastro exclusivo por operadores já previstos nos requisitos. Não há catálogo financeiro aprovado: nenhum produto, prazo, benefício, taxa ou funcionalidade adicional foi presumido. Cartões são expressão visual, não especificação de produto. Sem backend, formulários, autenticação, coleta de dados ou autocadastro.
 
-## Recuperação do smartphone e cartão
-Na recuperação original, a pasta EloBank ainda não continha repositório Git. A implementação anterior estava disponível no script local um script temporário local de recuperação. Foram extraídos somente HeroShowcase.tsx e seus estilos visuais; o script original não foi reexecutado sobre a página inteira.
+## Demonstração visual
 
-O pedido atual autoriza expressamente a recuperação da prévia visual. PRODUCT.md permanece intacto e todos os limites funcionais continuam válidos. A demonstração não implementa conta, autenticação, operações, backend ou coleta de dados. A marcação desktop foi removida do hero. Componentes e fixtures desktop ficam sem uso, preservados como código existente.
+A prévia estática de smartphone e cartão foi recuperada de uma versão anterior. Somente HeroShowcase.tsx e seus estilos foram restaurados. A prévia foi autorizada posteriormente ao escopo inicial de PRODUCT.md, sem ampliar as funcionalidades bancárias. Os componentes e dados do dashboard desktop permanecem no código, sem uso.
 
 A tela mostra Marina, saldo fictício de R$ 12.480,00 e dois exemplos em 09 nov: entrada R$ 250,00 às 09:20 e café R$ 18,00 às 08:15. A lista é exemplificativa, não um extrato completo. “Demonstração · Dados fictícios” aparece na tela e a legenda informa que cartão e interface não oferecem operações.
 
-Melhorias sobre a versão anterior: aparelho ligeiramente maior, sombras de contato e ambiente suaves, cartão menor e mais baixo, sem rotação nem decoração adicional. Em telas estreitas o aparelho chega a 266px e o cartão a 262px; não se reduz a composição inteira com scale/zoom. A região do cartão começa abaixo das movimentações em todos os breakpoints. Cabeçalho, menu contextual, título, apoio, botões, estilos institucionais e demais seções permanecem intactos.
+O aparelho usa sombras de contato e ambiente suaves. O cartão fica na base, sem rotação. Em telas estreitas o aparelho chega a 266px e o cartão a 262px; não se reduz a composição inteira com scale/zoom. A região do cartão começa abaixo das movimentações em todos os breakpoints.
 
 ## Registro da fotografia anterior (fora da interface)
 - Autor: cottonbro studio.
@@ -72,7 +71,5 @@ No celular, o disclosure “Seções” usa aria-expanded/aria-controls; Escape 
 
 A ancoragem automática do navegador é desativada para impedir que a expansão/retração da barra reposicione a rolagem e faça o cabeçalho reaparecer involuntariamente. O posicionamento de navegação usa medidas após o fechamento do disclosure.
 
-A ancoragem automática do navegador é desativada para impedir que a expansão/retração da barra reposicione a rolagem e faça o cabeçalho reaparecer involuntariamente. O posicionamento de navegação usa medidas após o fechamento do disclosure.
-
 ## Ajuste pontual do cartão sobreposto
-Cartão ampliado de 226 × 142px para 282 × 178px; em telas de até 380px, de 210 × 132px para 262 × 165px. Proporção aproximada de 1,59:1 preservada. Posição inferior esquerda com base em -16px, mantendo saldo e movimentações acima do cartão. Acabamento azul acetinado, microtextura CSS de baixa opacidade, sombras de contato/ambiente e bordas internas para espessura discreta. Marca, chip e slogan recebem espaçamento proporcional. Nenhuma alteração no aparelho, textos do hero, botões ou outras seções.
+Cartão ampliado de 226 × 142px para 282 × 178px; em telas de até 380px, de 210 × 132px para 262 × 165px. Proporção aproximada de 1,59:1 preservada. Posição inferior esquerda com base em -16px, mantendo saldo e movimentações acima do cartão. Acabamento azul acetinado, microtextura CSS de baixa opacidade, sombras de contato/ambiente e bordas internas para espessura discreta. Marca, chip e slogan recebem espaçamento proporcional.

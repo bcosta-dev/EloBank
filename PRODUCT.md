@@ -15,8 +15,8 @@
 ## Limites da entrega
 Esta página é uma apresentação estática. Não há APIs, persistência, cookies de aplicação, analytics, formulários de coleta, credenciais, autorização ou dados bancários. As ações navegam entre seções; o menu móvel e as perguntas frequentes são interações locais.
 
-## Integração futura (orientação técnica, não requisito de negócio adicional)
-Manter acesso HTTP em uma camada própria quando os contratos do Spring Boot forem aprovados; definir DTOs e tratamento de erros conforme a API, preferencialmente a partir de OpenAPI. O frontend nunca se conecta diretamente ao PostgreSQL. Autorização e validações de negócio serão responsabilidade do backend. Não há contrato de API, endpoints ou estratégia de sessão presumidos nesta entrega.
+## Integração futura
+Esta é uma orientação técnica, não um requisito de negócio adicional. Manter acesso HTTP em uma camada própria quando os contratos do Spring Boot forem aprovados; definir DTOs e tratamento de erros conforme a API, preferencialmente a partir de OpenAPI. O frontend nunca se conecta diretamente ao PostgreSQL. Autorização e validações de negócio serão responsabilidade do backend. Não há contrato de API, endpoints ou estratégia de sessão presumidos nesta entrega.
 
-## Autoridade visual
-A paleta e a direção geral foram aprovadas. Escolhas de composição, tamanhos, componentes e textos de apresentação estão em DESIGN.md e não definem novos produtos ou regras bancárias. As cinco capturas citadas não estavam disponíveis durante esta implementação.
+## Decisões visuais
+A paleta e a direção geral foram aprovadas. Escolhas de composição, tamanhos, componentes e textos de apresentação estão em DESIGN.md e não definem novos produtos ou regras bancárias. As cinco capturas de referência não estavam disponíveis na implementação inicial.
