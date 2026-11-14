@@ -6,6 +6,7 @@ import '../styles/context-navigation.css';
 const links = [
   { id: 'essencia', label: 'Nossa essência' },
   { id: 'possibilidades', label: 'Próximos passos' },
+  { id: 'sobre', label: 'Uma nova conexão' },
   { id: 'duvidas', label: 'Dúvidas' },
 ];
 
@@ -18,6 +19,7 @@ export function ContextNavigation() {
 
   useEffect(() => {
     const header = document.querySelector<HTMLElement>('.site-header');
+    const navigation = region.current?.querySelector<HTMLElement>('.context-nav');
     const sections = [...document.querySelectorAll<HTMLElement>('main > section[id]')];
     let frame = 0;
     const update = () => {
@@ -28,18 +30,31 @@ export function ContextNavigation() {
         setOpen(false);
         if (region.current?.contains(document.activeElement)) header?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
       }
-      const line = (region.current?.getBoundingClientRect().height ?? 0) + 40;
-      const current = sections.filter(section => section.getBoundingClientRect().top <= line).at(-1);
-      setActive(current?.id ?? '');
+      // The rail has zero height; measure the visible navigation overlay instead.
+      const readingTop = show ? Math.max(0, navigation?.getBoundingClientRect().bottom ?? 0) : 0;
+      let current = '';
+      let largestVisibleHeight = 0;
+      // A short final section may never reach the top of the viewport. Select
+      // the section occupying most of the unobscured reading area instead.
+      // Include unlinked sections so the Hero does not activate another link.
+      for (const section of sections) {
+        const bounds = section.getBoundingClientRect();
+        const visibleHeight = Math.max(0, Math.min(bounds.bottom, window.innerHeight) - Math.max(bounds.top, readingTop));
+        if (visibleHeight > largestVisibleHeight) {
+          current = section.id;
+          largestVisibleHeight = visibleHeight;
+        }
+      }
+      setActive(current);
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     const resize = new ResizeObserver(() => {
-      const height = region.current?.getBoundingClientRect().height ?? 0;
+      const height = navigation?.getBoundingClientRect().height ?? 0;
       document.documentElement.style.setProperty('--context-nav-offset', height + 24 + 'px');
       schedule();
     });
     if (header) resize.observe(header);
-    if (region.current) resize.observe(region.current);
+    if (navigation) resize.observe(navigation);
     sections.forEach(section => resize.observe(section));
     const desktop = window.matchMedia('(min-width: 801px)');
     const changeLayout = () => {
@@ -79,7 +94,7 @@ export function ContextNavigation() {
         }
         focusTarget.focus({ preventScroll: true });
       }
-      const offset = (region.current?.getBoundingClientRect().height ?? 0) + 24;
+      const offset = (region.current?.querySelector<HTMLElement>('.context-nav')?.getBoundingClientRect().height ?? 0) + 24;
       const top = id === 'inicio' ? 0 : window.scrollY + target.getBoundingClientRect().top - offset;
       history.pushState(null, '', '#' + id);
       window.scrollTo({ top: Math.max(0, top), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
