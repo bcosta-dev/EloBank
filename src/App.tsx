@@ -32,7 +32,24 @@ export function App() {
         </div><p className="services-note">Elo Bank é um projeto fictício. Nenhum serviço financeiro está disponível nesta página.</p>
       </div></section>
       <section className="about section" id="sobre" aria-labelledby="about-title"><div className="container about-panel"><div className="about-signature"><Brand decorative /><p>O que importa<br />é o que fica.</p><span>Clareza para escolher.<br />Proximidade para seguir.</span></div><div className="about-copy"><h2 id="about-title">Uma nova conexão.<br />Um projeto em construção.</h2><p>Uma experiência financeira começa muito antes de uma transação. Começa na confiança de entender o que está à sua frente. É essa ideia que orienta o Elo Bank.</p><p>Somos um projeto fictício, ainda em construção. Por aqui, você conhece nossa identidade e a direção das próximas etapas, sem abertura de conta ou operações financeiras.</p><a className="text-link" href="#duvidas">Entenda o projeto <ArrowUpRight size={18} aria-hidden="true" /></a></div></div></section>
-      <section className="faq section" id="duvidas" aria-labelledby="faq-title"><div className="container faq-grid"><SectionHeading id="faq-title" title="É bom ter clareza.">Respostas para conhecer este momento do Elo Bank.</SectionHeading><div>{questions.map(item => <AccordionItem key={item.question} question={item.question}><p>{item.answer}</p></AccordionItem>)}</div></div></section>
+      <section className="faq section" id="duvidas" aria-labelledby="faq-title">
+        <div className="container">
+          <div className="faq-heading">
+            <p className="faq-label">Perguntas frequentes</p>
+            <SectionHeading id="faq-title" title="É bom ter clareza.">Respostas para conhecer este momento do Elo Bank.</SectionHeading>
+          </div>
+          <div className="faq-grid">
+            <div className="faq-panel faq-questions">
+              {questions.map(item => <AccordionItem key={item.question} question={item.question}><p>{item.answer}</p></AccordionItem>)}
+            </div>
+            <div className="faq-panel faq-project">
+              <h3>Conheça o projeto</h3>
+              <p>Entenda a proposta do Elo Bank e veja o que ainda está em desenvolvimento.</p>
+              <ActionLink href="#sobre">Sobre o projeto</ActionLink>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer className="site-footer"><div className="container"><div className="footer-top"><a href="#inicio" aria-label="Elo Bank — voltar ao início"><Brand /></a><p>Conexões que ficam.</p><a className="text-link" href="#inicio">Voltar ao início <ArrowUpRight size={18} aria-hidden="true" /></a></div><div className="footer-bottom"><p>Elo Bank · Projeto fictício de banco digital.</p><p>Sem vínculo com instituições financeiras ou bandeiras de pagamento.<br />Esta página não oferece serviços financeiros nem coleta dados bancários.</p></div></div></footer>
   </>;

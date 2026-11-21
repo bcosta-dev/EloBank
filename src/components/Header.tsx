@@ -18,6 +18,7 @@ export function Header() {
     <nav id="main-navigation" className={open ? 'navigation is-open' : 'navigation'} aria-label="Navegação principal">
       <a href="#essencia" onClick={() => setOpen(false)}>Nossa essência</a>
       <a href="#possibilidades" onClick={() => setOpen(false)}>Próximos passos</a>
+      <a href="#sobre" onClick={() => setOpen(false)}>Uma nova conexão</a>
       <a href="#duvidas" onClick={() => setOpen(false)}>Dúvidas</a>
       <ActionLink href="#sobre" variant="outline" onClick={() => setOpen(false)}>Sobre o projeto</ActionLink>
     </nav>

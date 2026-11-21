@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
-import { ArrowUpRight, Plus } from 'lucide-react';
+import { ArrowUpRight, Minus, Plus } from 'lucide-react';
 
 type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & { variant?: 'primary' | 'outline' };
 export function ActionLink({ children, variant = 'primary', className = '', ...props }: LinkProps) {
@@ -12,5 +12,12 @@ export function ServiceCard({ icon, title, children, className = '', status }: {
   return <article className={`service-card ${className}`}><div className="service-meta"><span className="service-icon" aria-hidden="true">{icon}</span><span>{status}</span></div><div className="service-content"><h3>{title}</h3>{children}</div></article>;
 }
 export function AccordionItem({ question, children }: { question: string; children: ReactNode }) {
-  return <details className="accordion-item"><summary>{question}<Plus size={20} aria-hidden="true" /></summary><div className="accordion-content">{children}</div></details>;
+  return <details className="accordion-item">
+    <summary>
+      {question}
+      <Plus className="accordion-expand" size={20} aria-hidden="true" />
+      <Minus className="accordion-collapse" size={20} aria-hidden="true" />
+    </summary>
+    <div className="accordion-content">{children}</div>
+  </details>;
 }
